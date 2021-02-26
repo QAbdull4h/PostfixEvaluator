@@ -75,7 +75,7 @@ public class PostfixEvaluator {
                 if (part.equals("^")) {
                     int a = stack.pop();
                     int b = stack.pop();
-                    System.out.println("the power operation --> " + a + " ^ " + b + " = " + (Math.pow(a, b)));
+                    System.out.println("the power operation --> " + a + " ^ " + b + " = " + ((int) Math.pow(a, b)));
                     int d = operator(part.charAt(0), a, b);
                     stack.push(d);
                     System.out.println(d + " pushed to the stack");
