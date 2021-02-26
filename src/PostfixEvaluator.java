@@ -30,9 +30,9 @@ public class PostfixEvaluator {
                 System.out.println("current elements in the stack --> " + stack.toString());
             } else {
                 if (part.equals("+")) {
-                    int a = (Integer) stack.pop();
+                    int a = stack.pop();
                     System.out.println(a + " popped from the stack");
-                    int b = (Integer) stack.pop();
+                    int b = stack.pop();
                     System.out.println(b + " popped from the stack");
                     System.out.println("the addition operation --> " + a + " + " + b + " = " + (a + b));
                     int d = operator(part.charAt(0), a, b);
@@ -41,9 +41,9 @@ public class PostfixEvaluator {
                     System.out.println("current elements in the stack --> " + stack.toString());
                 }
                 if (part.equals("-")) {
-                    int a = (Integer) stack.pop();
+                    int a = stack.pop();
                     System.out.println(a + " popped from the stack");
-                    int b = (Integer) stack.pop();
+                    int b = stack.pop();
                     System.out.println(b + " popped from the stack");
                     System.out.println("the subtraction operation --> " + a + " - " + b + " = " + (a - b));
                     int d = operator(part.charAt(0), a, b);
@@ -52,9 +52,9 @@ public class PostfixEvaluator {
                     System.out.println("current elements in the stack --> " + stack.toString());
                 }
                 if (part.equals("*")) {
-                    int a = (Integer) stack.pop();
+                    int a = stack.pop();
                     System.out.println(a + " popped from the stack");
-                    int b = (Integer) stack.pop();
+                    int b = stack.pop();
                     System.out.println(b + " popped from the stack");
                     System.out.println("the multiplication operation --> " + a + " * " + b + " = " + (a * b));
                     int d = operator(part.charAt(0), a, b);
@@ -63,9 +63,19 @@ public class PostfixEvaluator {
                     System.out.println("current elements in the stack --> " + stack.toString());
                 }
                 if (part.equals("/")) {
-                    int a = (Integer) stack.pop();
-                    int b = (Integer) stack.pop();
+                    int a = stack.pop();
+                    int b = stack.pop();
                     System.out.println("the division operation --> " + a + " / " + b + " = " + (a / b));
+                    int d = operator(part.charAt(0), a, b);
+                    stack.push(d);
+                    System.out.println(d + " pushed to the stack");
+                    System.out.println("current elements in the stack --> " + stack.toString());
+                }
+
+                if (part.equals("^")) {
+                    int a = stack.pop();
+                    int b = stack.pop();
+                    System.out.println("the power operation --> " + a + " ^ " + b + " = " + (Math.pow(a, b)));
                     int d = operator(part.charAt(0), a, b);
                     stack.push(d);
                     System.out.println(d + " pushed to the stack");
@@ -97,6 +107,7 @@ public class PostfixEvaluator {
             case '-' -> a - b;
             case '*' -> a * b;
             case '/' -> b / a;
+            case '^' -> (int) Math.pow(a, b);
             default -> 0;
         };
     }
