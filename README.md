@@ -1,3 +1,3 @@
 # PostfixEvaluator
 
-Simple postfix expression evaluator
+A simple evaluator for postfix expression using stacks.
