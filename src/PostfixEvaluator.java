@@ -71,7 +71,6 @@ public class PostfixEvaluator {
                     System.out.println(d + " pushed to the stack");
                     System.out.println("current elements in the stack --> " + stack.toString());
                 }
-
                 if (part.equals("^")) {
                     int a = stack.pop();
                     int b = stack.pop();
