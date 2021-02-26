@@ -15,7 +15,7 @@ public class PostfixEvaluator {
                         result);
             } else throw new EmptyStackException();
 
-        } catch (Exception e) {
+        } catch (EmptyStackException e) {
             System.out.println("ERROR: " + e.toString());
         }
     }
