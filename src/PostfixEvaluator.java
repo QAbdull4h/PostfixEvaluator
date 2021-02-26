@@ -8,7 +8,8 @@ public class PostfixEvaluator {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter a postfix expression (must be in this form, i.e., 3,2,+,4,*)");
             String postfixExpression = scanner.nextLine().trim();
-            System.out.println("The final result for the given postfix expression = " + evaluateThePostfixExpression(postfixExpression));
+            System.out.println("The final result for the given postfix expression = " +
+                    evaluateThePostfixExpression(postfixExpression));
         } catch (Exception e) {
             System.out.println("ERROR: " + e.toString());
         }
