@@ -8,13 +8,13 @@ public class PostfixEvaluator {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter a postfix expression (must be in this form, i.e., 3,2,+,4,*)");
             String postfix = scanner.nextLine().trim();
-            System.out.println("The final result for the given postfix expression = " + expression(postfix));
+            System.out.println("The final result for the given postfix expression = " + evaluateThePostfixExpression(postfix));
         } catch (Exception e) {
             System.out.println("ERROR: " + e.toString());
         }
     }
 
-    public static Integer expression(String input) {
+    public static Integer evaluateThePostfixExpression(String input) {
         Stack<Integer> stack = new Stack<Integer>();
         String[] parts = input.split(",");
         for (String part : parts) {
