@@ -5,6 +5,7 @@ import java.util.Stack;
 public class PostfixEvaluator {
 
     public static void main(String[] args) {
+        System.out.print(info());
         try {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter a postfix expression (must be in this form, i.e., 3,2,+,4,*)");
@@ -80,6 +81,15 @@ public class PostfixEvaluator {
                     System.out.println(d + " pushed to the stack");
                     System.out.println("current elements in the stack --> " + stack.toString());
                 }
+                if (part.equals("%")) {
+                    int a = stack.pop();
+                    int b = stack.pop();
+                    System.out.println("the modular arithmetic operation --> " + a + " % " + b + " = " + (a % b));
+                    int d = operator(part.charAt(0), a, b);
+                    stack.push(d);
+                    System.out.println(d + " pushed to the stack");
+                    System.out.println("current elements in the stack --> " + stack.toString());
+                }
             }
         }
         if (!stack.isEmpty()) {
@@ -107,8 +117,16 @@ public class PostfixEvaluator {
             case '*' -> a * b;
             case '/' -> b / a;
             case '^' -> (int) Math.pow(a, b);
+            case '%' -> a % b;
             default -> 0;
         };
+    }
+
+    public static String info() {
+        return """
+                The possible mathematical operations in this program are
+                 +, -, *, ^, %
+                """;
     }
 
 }
